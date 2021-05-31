@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Heap Sort Algorithm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/oxi1eyl.css">
+  </head>
+  <body>
+    <div class="divOne">
+      <div class="HeadingOne">
+        <h1>Heap Sort Algorithm </h1>
+        <p id="para">by Akhilesh Chitte</p>
+        <p id="para">Posted on May 21, 2021</p>
+        <p>Data structures are one of the most important topics in computer science. It is defined as the management, organization, storage of data so that we can access the data effectively and modify it however we want. The main important types of data structures are Arrays, Linked Lists, Stacks, Queues, Trees, Heaps, and Graphs. Heaps are a special case of binary trees.</p>
+      </div>
+      <div>
+        <img class="images" src="images/flowchartOne.png" width="1000" height="270" alt="flowchart">
+      </div>
+      <div class="HeadingOne">
+        <p>And in the data structures, the sorting techniques are very important. sorting means arranging the data either in ascending order or descending order according to the wish of the user. there are many sorting techniques in the data structures and the important ones are Bubble Sort, Quick Sort, Merge Sort, Selection Sort, Insertion Sort, and Heap Sort. Every technique uses a different type of approach and sorts the data structures.</p>
+      </div>
+      <div>
+        <img class="images" src="images/block.png" alt="block" width="1000" height="200">
+      </div>
+      <div class="HeadingOne">
+        <p>Heapsort is one of the important sorting techniques every student should know. It mainly involves the building of heaps from the data. the knowledge of heaps can also help us in memory management. So in this blog, we are gonna discuss how to build heaps and using heap sort and uses of it.
+        </p>
+      </div>
+      <div>
+        <img class="images" src="images/tree.png" alt="tree" width="1000" height="200">
+      </div>
+      <br>
+      <div class="HeadingOne">
+        <p class="regular">Building a Heap</p>
+        <p id="marginTop">
+          Heap building is very easy. Consider you are given an array with N elements in it. Now make a binary tree from the given array i.e, add the elements to the nodes. the order of adding is
+        </p>
+
+        <p>First the parent node, then the child node at left, then the child node at right. For example, given an array = { 4, 3, 7, 1, 8, 5 }. The corresponding heap is:
+        </p>
+      </div>
+      <div>
+        <img class="images" src="images/binaryTree.png" alt="binaryTree" width="1000" height="200">
+      </div>
+      <div class="HeadingOne">
+        <p class="marginTop">after arranging into a binary tree we have two choices. Either make it a Max Heap or Min Heap.
+        </p>
+        <p class="regular">Max Heap</p>
+        <p id="marginTop">
+          In this, the value of the parent node is always greater than the child nodes. we swap the elements and make the Max Heap.
+        </p>
+        <p class="regular">Min Heap</p>
+        <p id="marginTop">
+          In this, the value of the parent node is always less than the child nodes. we swap the elements and make the Mix Heap.
+        </p>
+        <p>for example, consider an array arr[] = { 2, 5, 4, 8, 9, 10, 11}. Then the Max Heap is:</p>
+      </div>
+      <div>
+        <img class="images" src="images/maxMinHeap.png" alt="Max Min Heap" width="1000" height="300">
+        <img class="images" src="images/maxMinHeapOne.png" alt="Max Min Heap" width="1000" height="250">
+      </div>
+      <br>
+      <div class="HeadingOne">
+        <p class="marginTop">The pseudo-code for the max heap is:</p>
+        <p>void build_heap (int arr[ ];int n)
+          <br>
+{
+  <br>
+for(int i = n/2–1 ; i >= 0; i- -)
+<br>
+{
+  <br>
+down_heapify (arr, i, n);
+<br>
+}
+<br>
+}
+<br>
+</p>
+        <p>(Here down_heapify is an inbuilt function). Similarly, you can also make Min Heap. The time complexity for building a heap is O(N) and the function down_heapify has a complexity of O(log N).
+        </p>
+      </div>
+      <div class="HeadingOne">
+        <p class="regular">Some functions of the heap</p>
+        <p class="marginTop">
+          <u>Insert:</u> It is used to add the elements into the heap.<br>
+<u>Remove:</u> It is used to delete the elements from the heap.<br>
+<u>Find Minimum/Maximum:</u> In many problems, we are asked to find the largest or smallest element. So we use this function.<br>
+<u>Decrease/Increase Key:</u> The key determines the place in the heap where the node will be. By using this function we can adjust the node and perform operations.<br>
+<u>Merge:</u> The merge function is used when we are required to combine two heaps into a single heap.
+        </p>
+        <p class="regular">Heap Sort Algorithm</p>
+        <p class="marginTop">
+          After making the heap into a max heap or min-heap, now we can apply the sorting algorithm.
+        </p>
+        <p>The process is to take out the max element from the heap and then again heapify the tree so that the second largest element will be now at the root node of the tree and continue the process until all elements are taken out.
+        </p>
+        <br>
+        <p>The steps in the Heap sort are:</p>
+        <p>
+          1. Create a heap from the elements of the array.<br>
+2. Convert the heap into a Max heap.<br>
+3. Now swap the element in the root node i.e, the maximum element with the last element of the heap i.e, the element present in the leaf node.<br>
+4. Now remove the swapped element from the leaf node.<br>
+5. Hepify the tree again so that the 2nd largest element is now in the root node.<br>
+6. Continue steps 3, 4, 5 until all the elements are taken out from the tree.
+        </p>
+        <p>
+          The reason we swap with the last element i.e, the leaf node is that we can only perform the deletion of elements in a tree only at root nodes. So we always swap the elements needed to be removed with leaf nodes and delete them.
+        </p>
+        <p>
+          For example, take an array arr[] = { 11, 9, 10, 8, 5, 2, 4}
+        </p>
+      </div>
+      <div>
+        <img class="images" src="images/bt1.png" alt="BT" width="1000" height="300">
+        <img class="images" src="images/bt2.png" alt="BT" width="1000" height="300">
+        <img class="images" src="images/bt3.png" alt="BT" width="1000" height="300">
+        <img class="images" src="images/bt4.png" alt="BT" width="1000" height="300">
+      </div>
+      <br>
+      <div class="HeadingOne">
+        <p id="marginTop">
+          As you can see we swap the max elements with leaf node and delete them one by one and we get the sorted output.
+        </p>
+        <p>The pseudo-code is:
+        </p>
+        <p>
+          void heap_sort(int arr[], int n) {<br>
+build_heap(arr);<br>
+for(int i = n-1; i >= 1; i- -) {<br>
+swap(arr[i], arr[0]);<br>
+down_heapify(arr, 0, i+1);<br>
+}<br>
+}
+        </p>
+        <p>(Here build_heap, down_heapify, swap are inbuilt functions used)
+        </p>
+        <p>The time complexity of this code is O(N log N) as we heapify the heap N-1 times. the complexity of building the would be O(N) and down_heapify function would be O(log N).
+        </p>
+        <p class="regular">
+          How the algorithm works
+        </p>
+        <p class="marginTop">
+          You select one node and start from that node(Source Node) and the algorithm finds the distance between the source node and all the other nodes in the graph. it notes the shortest distance and updates the value when it finds a shorter path. once it finds the shortest distance it marks that path and marks that node as visited. this continues till all the shortest paths of all nodes are found. So finally we can find the shortest path between any two nodes.
+        </p>
+        <p class="regular">
+          Conclusion
+        </p>
+        <p class="marginTop">
+          Heapsort is a very important algorithm in data structures that has a lot of real-life applications like finding the shortest path which is used in airline traffic systems. The algorithm is not so complicated, easy to use but is better to use only for the given applications. Because if we use this sorting technique for other problems, the algorithm works but has high time complexity relative to the other techniques that can be used.
+        </p>
+        <br>
+      </div>
+
+<!-- Bottom Container Start From heare -->
+    </div>
+    <div class="Bottom-Container">
+      <br>
+    <p>© 2021 Akhilesh Chitte.</p>
+    <br>
+  </div>
+
+  </body>
+</html>
